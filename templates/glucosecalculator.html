@@ -1,0 +1,89 @@
+{% from "showlinks.html" import showlinks %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'glucosecalculator.css')}}">
+  </head>
+  <body>
+    <div class="parent container">
+       <div class="header">
+           {{ showlinks ()}}
+       </div>  
+
+       <div class="maincenter">
+          <div class="mainheading">
+              <p class="">Team :- Kashi Reddy, B MEGHANA. </p>
+              <h1>Diabetes Prediction <br/>Project</h1>
+              <h3>Glucose level Calculation.</h3>
+              <h4>Select the 5 most frequent meals from the list below.</h4>
+              <ul class="list-group list-group-horizontal">
+                  <li class="list-group-item list-group-item-sm">Cake</li>
+                  <li class="list-group-item">apple</li>
+                  <li class="list-group-item">bagel</li>
+                  <li class="list-group-item">bun</li>
+                  <li class="list-group-item">bread</li>
+                  <li class="list-group-item">wheat</li>
+                  <li class="list-group-item">flour</li>
+                  <li class="list-group-item">grains</li>
+                  <li class="list-group-item">coke</li>
+                  <li class="list-group-item">fanta</li>
+                  <li class="list-group-item">applejuice</li>
+                  <li class="list-group-item">orange</li>
+                  <li class="list-group-item">tomato</li>
+                  <li class="list-group-item">potato</li>
+                  <li class="list-group-item">honey</li>
+                  <li class="list-group-item">corn</li>
+                  <li class="list-group-item">coconut</li>
+                  <li class="list-group-item">banana</li>
+                </ul>
+          </div>
+          <div class="forimage">
+            <form method = "POST"  class="container mt-3 p-3" action="/glucosecalculator">
+                <div class="input-group mb-1 input-group-sm">
+                    <span class="input-group-text" id="basic-addon1">Enter Meal1</span>
+                    <input type="text" class="form-control" placeholder="Enter Meal1" name = "meal1" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+
+                  <div class="input-group mb-1 input-group-sm">
+                    <span class="input-group-text" id="basic-addon1">Enter meal2</span>
+                    <input type="text" class="form-control" placeholder="Enter meal2" name = "meal2" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                  <div class="input-group mb-1 input-group-sm">
+                    <span class="input-group-text" id="basic-addon1">Enter meal3</span>
+                    <input type="text" class="form-control" placeholder="Enter meal3" name = "meal3" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                  <div class="input-group mb-1 input-group-sm">
+                    <span class="input-group-text" id="basic-addon1">Enter meal4</span>
+                    <input type="text" class="form-control" placeholder="Enter meal4" name = "meal4" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                  <div class="input-group mb-1 input-group-sm">
+                    <span class="input-group-text" id="basic-addon1">Enter meal5</span>
+                    <input type="text" class="form-control" placeholder="Enter meal4" name = "meal5" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Calculate Glucose Value</button>
+               </form>
+               {% if meal1 %}
+               <div class="mealname text-danger text-center bg-light">
+                 {{meal1}}
+               </div>
+               {% endif %}
+               {% if bmivalue %}
+               <div class="bmivalue text-danger text-center bg-light">
+                   {{glucosevalue}}
+               </div>
+               {% endif %}
+          </div>
+       </div>
+
+       <div class="footer">
+          <p class="text-end fixed-bottom m-3">Developed by - Kashi Reddy, Bangalore <br/>email : kashireddy256@gmail.com</p>
+       </div> 
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>

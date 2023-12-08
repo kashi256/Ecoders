@@ -1,0 +1,80 @@
+{% from "showlinks.html" import showlinks %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'alldatacollected.css')}}">
+  </head>
+  <body>
+    <div class="parent">
+       <div class="header">
+           {{ showlinks ()}}
+       </div>  
+
+       <div class="alldatacenter text-dark">
+          <h4 class="text-center text-decoration-underline p-2">All Collected Data.</h4>
+          
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Height</th>
+                <th scope="col">weight</th>
+                <th scope="col">pregnancies</th>
+                <th scope="col">Meals/day</th>
+                <th scope="col">exersise hours</th>
+                <th scope="col">Glucose</th>
+                <th scope="col">B-P</th>
+                <th scope="col">S-T</th>
+                <th scope="col">Insulin</th>
+                <th scope="col">BMI</th>
+                <th scope="col">DPF</th>
+                <th scope="col">Family history</th>
+                <th scope="col" colspan="5">Most Frequent Meals</th>
+                <th scope="col">Diabetes Status</th>
+              </tr>
+            </thead>
+            {% for alldetails in alldata %}
+            <tbody>
+              <tr>
+                <th scope="row">{{alldetails['id']}}</th>
+                <td>{{alldetails['username']}}</td>
+                <td>{{alldetails['age']}}</td>
+                <td>{{alldetails['height']}}</td>
+                <td>{{alldetails['weight']}}</td>
+                <td>{{alldetails['pregnancies']}}</td>
+                <td>{{alldetails['mealsperday']}}</td>
+                <td>{{alldetails['totalexersisehours']}}</td>
+                <td>{{alldetails['glucose']}}</td>
+                <td>{{alldetails['bloodpressure']}}</td>
+                <td>{{alldetails['skinthickness']}}</td>
+                <td>{{alldetails['insulin']}}</td>
+                <td>{{alldetails['bmi']}}</td>
+                <td>{{alldetails['dpf']}}</td>
+                <td>{{alldetails['familyhistory']}}</td>
+                <td>{{alldetails['meal1']}}</td>
+                <td>{{alldetails['meal2']}}</td>
+                <td>{{alldetails['meal3']}}</td>
+                <td>{{alldetails['meal4']}}</td>
+                <td>{{alldetails['meal5']}}</td>
+                <td>{{alldetails['diabetesprediction']}}</td>
+              </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+         
+       </div>
+
+       <div class="footer">
+        <small><h6 class="text-end">Developed by - Kashi Reddy, B MEGHANA, Bangalore, email : kashireddy256@gmail.com</h6></small> 
+       </div> 
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>

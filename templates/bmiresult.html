@@ -1,0 +1,27 @@
+{% from "showlinks.html" import showlinks %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Diabetes Predictor</title>
+	    
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link rel="stylesheet" href="{{url_for('static', filename = 'result.css')}}">
+    </head>
+    <body>
+        <div class="parent">
+            <div class="header container mb-3">
+                {{ showlinks() }}
+                <h1 class="text-center display-1 bg-light text-dark">Diabetes Predictor Final Result.</h1>
+            </div> 
+		<!-- Result -->
+		<div class="results m-3">
+			{% if bmivalue %}
+               <h1>{{bmivalue }}</h1>
+			{% endif %}
+		</div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+	</body>
+</html>

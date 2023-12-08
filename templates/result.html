@@ -1,0 +1,171 @@
+{% from "showlinks.html" import showlinks %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Diabetes Predictor</title>
+	    
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link rel="stylesheet" href="{{url_for('static', filename = 'result.css')}}">
+    </head>
+    <body>
+        <div class="parent">
+            <div class="header container mb-3">
+                {{ showlinks() }}
+                <h1 class="text-center display-1 bg-light text-dark">Diabetes Predictor Final Result.</h1>
+            </div> 
+		<!-- Result -->
+		<div class="results m-3">
+			{% if prediction_result==1 %}
+            <div class="badnews p-3">
+                <h1 class="text-center">Machine Prediction : <span class="bg-danger"> DIABETES</span></h1>
+
+                <h3 class="m-3">With These Food Intake,</h3>
+                <ul class="list-group list-group-horizontal text-center">
+
+                    {% if username%}
+                    <li class="list-group-item">Mr/Mrs {{username}}</li>
+                    {% endif %}
+                    {% if meal1%}
+                    <li class="list-group-item">{{meal1}}</li>
+                    {% endif %}
+                    {% if meal2%}
+                    <li class="list-group-item">{{meal2}}</li>
+                    {% endif %}
+                    {% if meal3 %}
+                    <li class="list-group-item">{{meal3}}</li>
+                    {% endif %}
+                    {% if meal4 %}
+                    <li class="list-group-item">{{meal4}}</li>
+                    {% endif %}
+                    {% if meal5 %}
+                    <li class="list-group-item">{{meal5}}</li>
+                    {% endif %}
+                    {% if weight %}
+                    <li class="list-group-item">Weight - {{weight}}</li>
+                    {% endif %}
+                    {% if height %}
+                    <li class="list-group-item">Height - {{height}}</li>
+                    {% endif %}
+                    {% if glucose %}
+                    <li class="list-group-item">Glucose level - {{glucose}}</li>
+                    {% endif %}
+                    {% if insulin %}
+                    <li class="list-group-item">Insulin level - {{insulin}}</li>
+                    {% endif %}
+                    {% if bloodpressure %}
+                    <li class="list-group-item">Blood Pressure - {{bloodpressure}}</li>
+                    {% endif %}
+                    {% if totalexersisehours%}
+                    <li class="list-group-item">Exersise Hours Per Day - {{totalexersisehours}}</li>
+                    {% endif %}
+                    {% if mealsperday %}
+                    <li class="list-group-item">Meals Per Day - {{mealsperday}}</li>
+                    {% endif %}
+                  </ul>
+
+                  <duv>
+                    <h3 class="m-3">Machine Recommandations are, you take care of the Following.</h3>
+                    <ul class="list-group list-group-flush">
+
+                        {% if  recommendedbloodpressure %} 
+                        <li class="list-group-item">Recommandations on Blood Pressure levels - {{recommendedbloodpressure}}</li>
+                        {% endif %}
+
+                        {% if recommendedglucose %}
+                        <li class="list-group-item">Recommanded Glucose level - {{recommendedglucose}}</li>
+                        {% endif %}
+
+                        {% if recommendedtotalexersisehours %}
+                        <li class="list-group-item">Exersize Recommandations - {{recommendedtotalexersisehours}}</li>
+                        {% endif %}
+
+                        {% if mealsperday %}
+                        <li class="list-group-item">Meals Per Day Recommendation is - {{recommendedmealsperday}}</li>
+                        {% endif %}
+                      </ul>
+
+            </div>
+				
+			{% elif prediction_result==0 %}
+
+            <div class="goodnews p-3">
+                <h1 class="text-center">Machine Prediction : <span class='safe bg-success p-1'>No Diabetes.</span></h1>
+
+
+
+                <h3 class="m-3">With These Food Intake,</h3>
+                <ul class="list-group list-group-horizontal text-center">
+
+                    {% if username%}
+                    <li class="list-group-item">Mr/Mrs {{username}}</li>
+                    {% endif %}
+                    {% if meal1%}
+                    <li class="list-group-item">{{meal1}}</li>
+                    {% endif %}
+                    {% if meal2%}
+                    <li class="list-group-item">{{meal2}}</li>
+                    {% endif %}
+                    {% if meal3 %}
+                    <li class="list-group-item">{{meal3}}</li>
+                    {% endif %}
+                    {% if meal4 %}
+                    <li class="list-group-item">{{meal4}}</li>
+                    {% endif %}
+                    {% if meal5 %}
+                    <li class="list-group-item">{{meal5}}</li>
+                    {% endif %}
+                    {% if weight %}
+                    <li class="list-group-item">Weight - {{weight}}</li>
+                    {% endif %}
+                    {% if height %}
+                    <li class="list-group-item">Height - {{height}}</li>
+                    {% endif %}
+                    {% if glucose %}
+                    <li class="list-group-item">Glucose level - {{glucose}}</li>
+                    {% endif %}
+                    {% if insulin %}
+                    <li class="list-group-item">Insulin level - {{insulin}}</li>
+                    {% endif %}
+                    {% if bloodpressure %}
+                    <li class="list-group-item">Blood Pressure - {{bloodpressure}}</li>
+                    {% endif %}
+                    {% if totalexersisehours%}
+                    <li class="list-group-item">Exersise Hours Per Day - {{totalexersisehours}}</li>
+                    {% endif %}
+                    {% if mealsperday %}
+                    <li class="list-group-item">Meals Per Day - {{mealsperday}}</li>
+                    {% endif %}
+                  </ul>
+
+                  <duv>
+                    <h3 class="m-3">Machine Recommandations are, you take care of the Following.</h3>
+                    <ul class="list-group list-group-flush">
+
+                        {% if  recommendedbloodpressure %} 
+                        <li class="list-group-item">Recommandations on Blood Pressure levels - {{recommendedbloodpressure}}</li>
+                        {% endif %}
+
+                        {% if recommendedglucose %}
+                        <li class="list-group-item">Recommanded Glucose level - {{recommendedglucose}}</li>
+                        {% endif %}
+
+                        {% if recommendedtotalexersisehours %}
+                        <li class="list-group-item">Exersize Recommandations - {{recommendedtotalexersisehours}}</li>
+                        {% endif %}
+
+                        {% if mealsperday %}
+                        <li class="list-group-item">Meals Per Day Recommendation is - {{recommendedmealsperday}}</li>
+                        {% endif %}
+                      </ul>
+                  </duv>
+                
+            </div>
+            </div>
+			{% endif %}
+		</div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+	</body>
+</html>
