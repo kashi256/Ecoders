@@ -1,0 +1,21 @@
+body{
+    background-color: rgb(255, 132, 0);
+}
+
+.alldatacenter{
+    background-color: rgb(255, 132, 0);
+}
+
+
+.header a{
+    color:black;
+}
+.header a:hover{
+    background-color:black;
+    color:white;
+}
+
+.datacollectionform{
+    width: 60%;
+    margin: 0 auto;
+}
