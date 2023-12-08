@@ -1,0 +1,45 @@
+{% from "showlinks.html" import showlinks %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'bmicalculator.css')}}">
+  </head>
+  <body>
+    <div class="parent container">
+       <div class="header">
+           {{ showlinks ()}}
+       </div>  
+
+       <div class="maincenter">
+        <div class="mainheading">
+            <p class="">Team :- KASHI REDDY. </p>
+            <h1>Diabetes Prediction <br/>Project</h1>
+            <h3>BMI Calculation.</h3>
+        </div>
+          <div class="forimage">
+               <form action="/bmicalculator"  method = "POST"  class="container mt-3 p-3">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Enter height</span>
+                    <input type="number" class="form-control" placeholder="Enter height" name = "height" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Enter Weight</span>
+                    <input type="number" class="form-control" placeholder="Enter height" name = "weight" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Calculate Bmi</button>
+               </form>
+          </div>
+       </div>
+       <div class="footer">
+          <p class="text-end fixed-bottom m-3">Developed by - kashi Reddy, Bangalore <br/>email : kashireddy256@gmail.com</p>
+       </div> 
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>
